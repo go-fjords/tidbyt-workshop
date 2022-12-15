@@ -1,0 +1,157 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/adventure-tech.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+
+			<img class="background-image" src="img/cloud-illustration-modded.svg" />
+			<img class="logo" src="img/logo.svg">
+			<div class="slides">
+				<section class="frontpage">
+					<h1>Tidbyt</h1>
+					<p>A fun little LED matrix display</p>
+				</section>
+				<section>
+					<section>
+						<h2>What is it?</h2>
+						<img src="img/tidbyt.jpg" height="500vh" />
+					</section>
+					<section>
+						<h3>It's a LED matrix display</h3>
+						<img src="img/tidbyt-open-ecosystem.webp" height="500vh" />
+					</section>
+					<section>
+						<h3>It's a cloud solution</h3>
+						<img src="img/someone-elses-computer.jpeg" height="300vh" />
+					</section>
+					<section>
+						<h3>It's a development kit</h3>
+						<img src="img/tidbyt-sdk.png" height="500vh" />
+					</section>
+					<section>
+						<h3>It's a community</h3>
+						<img src="img/tidbyt-community.png" height="500vh" />
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Pixlet</h2> 
+					</section>
+					<section>
+						<h3>What is Pixlet?</h3>
+						<ul>
+							<li>UX toolkit</li>
+							<li>App runtime</li>
+							<li>Designed for highly-constrained displays</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Pixlet UX toolkit</h3>
+						<ul>
+							<li>Widgets</li>
+							<li>Like React</li>
+							<li>Starlark language</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Runtime</h3>
+						<p>A single go binary to:</p>
+						<p>Develop - Build - Render</p>
+						<pre><code class="sh">
+							$ pixlet serve hello_world.star
+						</code></pre>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Starlark</h2>
+					</section>
+					<section>
+						<h3>Origins</h3>
+						<p>Made for Blazor build tool</p>
+						<p>Java (Blazor), Go (Pixlet), Rust, etc.</p>
+					</section>
+					<section>
+						<h3>Syntax</h3>
+						<p>Like Python</p>
+						<pre>
+							<code class="py">
+								load("render.star", "render")
+
+								def main():
+									return render.Root(
+										child = render.Text("Hello, World!")
+									)
+							</code>
+						</pre>
+					</section>
+					<section>
+						<h3>Modules</h3>
+						<ul>
+							<li>json</li>
+							<li>math</li>
+							<li>re (regex)</li>
+							<li>time</li>
+							<li>...</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Example apps</h3>
+						<a href="https://github.com/tidbyt/community/blob/main/apps/githubstargazers/github_stargazers.star">
+							GitHub Stargazers community app
+						</a>
+					</section>
+				</section>
+				<section>
+					<h2>Ideas!</h2>
+					<ul>
+						<li>Beers on tap</li>
+						<li>Meeting room schedule</li>
+						<li>Blend/Bilberry stats</li>
+						<li>Application/server health</li>
+						<li>Fireplace or other christmas decorations</li>
+						<li>Opened PRs</li>
+						<li>...</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Demo time!</h2>
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/terraform.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ],
+				highlight: {
+					beforeHighlight: hljs => {
+						hljs.registerLanguage('terraform', window.hljsDefineTerraform);
+					}
+				},
+			});
+		</script>
+	</body>
+</html>
